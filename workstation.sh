@@ -36,14 +36,14 @@ systemctl enable --now docker >>$LOGFILE 2>&1
 usermod -aG docker ec2-user
 VALIDATE $? "Docker installation"
 
-# eksctl Installation
-curl -sLO "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_$PLATFORM.tar.gz"
-VALIDATE $? "Downloaded eksctl"
-tar -xzf eksctl_$PLATFORM.tar.gz
-mv eksctl /usr/local/bin/
-rm -f eksctl_$PLATFORM.tar.gz
-eksctl version >>$LOGFILE 2>&1
-VALIDATE $? "eksctl installation"
+# # eksctl Installation
+# curl -sLO "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_$PLATFORM.tar.gz"
+# VALIDATE $? "Downloaded eksctl"
+# tar -xzf eksctl_$PLATFORM.tar.gz
+# mv eksctl /usr/local/bin/
+# rm -f eksctl_$PLATFORM.tar.gz
+# eksctl version >>$LOGFILE 2>&1
+# VALIDATE $? "eksctl installation"
 
 # kubectl Installation
 curl -o kubectl "https://s3.us-west-2.amazonaws.com/amazon-eks/1.31.0/2024-09-12/bin/linux/amd64/kubectl"

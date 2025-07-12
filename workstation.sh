@@ -47,10 +47,10 @@ VALIDATE $? "Docker installation"
 
 # kubectl Installation
 curl -o kubectl "https://s3.us-west-2.amazonaws.com/amazon-eks/1.31.0/2024-09-12/bin/linux/amd64/kubectl"
-chmod +x kubectl
-mv kubectl /usr/local/bin/
+chmod +x ./kubectl
+sudo mv kubectl /usr/local/bin/kubectl
 kubectl version --client >>$LOGFILE 2>&1
-VALIDATE $? "kubectl installation"
+
 
 # kubens Installation
 git clone https://github.com/ahmetb/kubectx /opt/kubectx >>$LOGFILE 2>&1

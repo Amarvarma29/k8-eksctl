@@ -7,8 +7,8 @@ metadata:
 
 managedNodeGroups:
   - name: expense
-    instanceType: m5.large
-    desiredCapacity: 2
+    instanceType: t2.micro
+    desiredCapacity: 1
     spot: true
     # availabilityZones:
     # - us-east-1f

@@ -45,6 +45,22 @@ VALIDATE $? "Docker installation"
 # eksctl version >>$LOGFILE 2>&1
 # VALIDATE $? "eksctl installation"
 
+# eksctl Installation
+{
+  curl -sLO "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_${PLATFORM}.tar.gz" &&
+  tar -xzf eksctl_${PLATFORM}.tar.gz -C /tmp &&
+  rm -f eksctl_${PLATFORM}.tar.gz &&
+  chmod +x /tmp/eksctl &&
+  mv /tmp/eksctl /usr/local/bin/
+} &>> $LOGFILE
+
+# Force reload shell cache to recognize eksctl
+hash -r
+which eksctl &>> $LOGFILE
+eksctl version &>> $LOGFILE
+VALIDATE $? "eksctl installation"
+
+
 # kubectl Installation
 curl -o kubectl "https://s3.us-west-2.amazonaws.com/amazon-eks/1.31.0/2024-09-12/bin/linux/amd64/kubectl"
 chmod +x ./kubectl

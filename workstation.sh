@@ -46,19 +46,19 @@ VALIDATE $? "Docker installation"
 # VALIDATE $? "eksctl installation"
 
 # eksctl Installation
-{
-  curl -sLO "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_${PLATFORM}.tar.gz" &&
-  tar -xzf eksctl_${PLATFORM}.tar.gz -C /tmp &&
-  rm -f eksctl_${PLATFORM}.tar.gz &&
-  chmod +x /tmp/eksctl &&
-  mv /tmp/eksctl /usr/local/bin/
-} &>> $LOGFILE
+# {
+#   curl -sLO "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_${PLATFORM}.tar.gz" &&
+#   tar -xzf eksctl_${PLATFORM}.tar.gz -C /tmp &&
+#   rm -f eksctl_${PLATFORM}.tar.gz &&
+#   chmod +x /tmp/eksctl &&
+#   mv /tmp/eksctl /usr/local/bin/
+# } &>> $LOGFILE
 
-# Force reload shell cache to recognize eksctl
-hash -r
-which eksctl &>> $LOGFILE
-eksctl version &>> $LOGFILE
-VALIDATE $? "eksctl installation"
+# # Force reload shell cache to recognize eksctl
+# hash -r
+# which eksctl &>> $LOGFILE
+# eksctl version &>> $LOGFILE
+# VALIDATE $? "eksctl installation"
 
 
 # kubectl Installation
@@ -73,8 +73,8 @@ git clone https://github.com/ahmetb/kubectx /opt/kubectx >>$LOGFILE 2>&1
 ln -s /opt/kubectx/kubens /usr/local/bin/kubens
 VALIDATE $? "kubens installation"
 
-# Optional: Helm installation (uncomment if needed)
-# curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
-# chmod 700 get_helm.sh
-# ./get_helm.sh >>$LOGFILE 2>&1
-# VALIDATE $? "Helm installation"
+Optional: Helm installation (uncomment if needed)
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh >>$LOGFILE 2>&1
+VALIDATE $? "Helm installation"

@@ -73,7 +73,7 @@ git clone https://github.com/ahmetb/kubectx /opt/kubectx >>$LOGFILE 2>&1
 ln -s /opt/kubectx/kubens /usr/local/bin/kubens
 VALIDATE $? "kubens installation"
 
-Optional: Helm installation (uncomment if needed)
+# Optional: Helm installation (uncomment if needed)
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 chmod 700 get_helm.sh
 ./get_helm.sh >>$LOGFILE 2>&1
